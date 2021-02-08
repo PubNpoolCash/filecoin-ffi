@@ -15,3 +15,9 @@ require (
 )
 
 replace github.com/xlab/c-for-go => github.com/Kubuxu/c-for-go v0.0.0-20200729154323-9d77fa534f6d
+
+replace github.ciom/filecoin-project/specs-actors => ../specs-actors-v0.9.12
+
+replace github.com/filecoin-project/go-state-types => ../go-state-types
+
+
