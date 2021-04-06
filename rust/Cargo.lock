@@ -47,6 +47,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "ahash"
+version = "0.5.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "19fac972e53443ba111b1ff866e9d3b6484df5c05030e13bc7c6a1ebc802e983"
+dependencies = [
+ "getrandom 0.2.2",
+ "lazy_static",
+]
+
+[[package]]
 name = "aho-corasick"
 version = "0.7.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -121,10 +131,9 @@ checksum = "904dfeac50f3cdaba28fc6f57fdcddb75f49ed61346676a78c4ffe55877802fd"
 
 [[package]]
 name = "bellperson"
-version = "0.12.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6c53631e678154f40b6d1b986e6ab638172d1b6aa992e49498567f90f64b483a"
+version = "0.12.1"
 dependencies = [
+ "ahash",
  "bit-vec",
  "blake2s_simd",
  "blstrs",
@@ -142,8 +151,7 @@ dependencies = [
  "rand 0.7.3",
  "rand_core 0.5.1",
  "rayon",
- "rust-gpu-tools 0.2.2",
- "rustc-hash",
+ "rust-gpu-tools",
  "thiserror",
 ]
 
@@ -926,7 +934,7 @@ dependencies = [
  "rand 0.7.3",
  "rand_chacha 0.2.2",
  "rayon",
- "rust-gpu-tools 0.2.2",
+ "rust-gpu-tools",
  "serde_json",
  "tempfile",
 ]
@@ -1647,28 +1655,21 @@ dependencies = [
 
 [[package]]
 name = "neptune"
-version = "2.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9377bb550ef686072068b35d856f343dc8e03e55f92d8e5418b70970bbeb3aa9"
+version = "2.2.0"
 dependencies = [
  "bellperson",
  "blake2s_simd",
  "byteorder 1.4.2",
- "ff-cl-gen",
  "fff",
  "generic-array 0.14.4",
- "itertools 0.8.2",
  "lazy_static",
  "log",
  "neptune-triton",
- "rust-gpu-tools 0.3.0",
 ]
 
 [[package]]
 name = "neptune-triton"
 version = "2.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "16ef7eb7a6dc2b5186caea63098f6f47a26ac8814c292fa0a236cc53478ddbfa"
 dependencies = [
  "cc",
 ]
@@ -2387,30 +2388,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-gpu-tools"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "39a221f75523a16675b1b3b78aa70cc361c4fffde33255a3d4414419a5f1347d"
-dependencies = [
- "dirs",
- "fil-ocl",
- "lazy_static",
- "log",
- "sha2 0.8.2",
- "thiserror",
-]
-
-[[package]]
 name = "rustc-demangle"
 version = "0.1.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6e3bad0ee36814ca07d7968269dd4b7ec89ec2da10c4bb613928d3077083c232"
-
-[[package]]
-name = "rustc-hash"
-version = "1.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
 
 [[package]]
 name = "rustc-serialize"
@@ -2560,7 +2541,7 @@ name = "sha2raw"
 version = "2.0.0"
 dependencies = [
  "block-buffer 0.9.0",
- "byteorder 1.3.4",
+ "byteorder 1.4.2",
  "cpuid-bool",
  "digest 0.9.0",
  "fake-simd",
@@ -2653,6 +2634,7 @@ dependencies = [
  "anyhow",
  "bellperson",
  "bincode",
+ "block-buffer 0.7.3",
  "byte-slice-cast",
  "byteorder 1.4.2",
  "crossbeam 0.8.0",
